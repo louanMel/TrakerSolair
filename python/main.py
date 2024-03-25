@@ -1,5 +1,6 @@
 # Programme permettant la gestion d'un servomoteur
-
+servo = ""
+angle = 0
 # from machine import Pin,PWM
 
 def initservo(servo,angle):
