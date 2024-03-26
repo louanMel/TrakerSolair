@@ -1,24 +1,28 @@
 from machine import Pin, PWM
 import time
 
-# Initialise le servo sur la broche D2
-servo_pin = Pin(3)
+def set_angle(servo_pwm, angle):
+    print('func')
+    duty = int(-35*angle+8000)
+    print('duty')
+    servo_pwm.duty_u16(duty)
+    print('func fini')
+
+servo_pin = Pin(15)
 servo_pwm = PWM(servo_pin)
 
-# Définit la fréquence du PWM à 50 Hz (standard pour les servomoteurs)
+
 servo_pwm.freq(50)
+print('freq')
 
-# Fonction pour définir l'angle du servo
-def set_angle(angle):
-    # Convertit l'angle en valeur de rapport cyclique PWM
-    duty = int((angle / 180) * 1023 + 128)
-    servo_pwm.duty_u16(duty)
+set_angle(servo_pwm, 0)
+time.sleep(0.5)
+print('fini1')
+set_angle(servo_pwm, 20)
+time.sleep(0.5)
+print('fini2')
+set_angle(servo_pwm, 10)
+time.sleep(0.5)
+print('fini3')
 
-# Définit la position du servo à 5, 10, puis 15 degrés avec des pauses de 2 secondes entre chaque mouvement
-set_angle(5)
-print('turn1')
-time.sleep(2.0)
-set_angle(30)
-print('turn2')
-
-
+print('fini')
