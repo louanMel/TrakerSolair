@@ -8,8 +8,10 @@ servo_h = PWM(Pin(25))
 initservo(servo_h, 0)
 
 
-for angle in range(10, 150, 1):  # Test de chaque angle
-    position(servo_h, angle)
-    position(servo_v, angle)
+for angle in range(10, 50, 1):
+    angle_h = angle
+    angle_v = angle*2
+    position(servo_h, angle_h)
+    position(servo_v, angle_v)
     print("Angle:", angle)
     time.sleep(0.5)
