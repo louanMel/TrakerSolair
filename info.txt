@@ -1,4 +1,1 @@
-TEST
-TEST
-coucou
-CV
+https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-01-technical-reference/
